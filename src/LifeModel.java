@@ -129,7 +129,9 @@ public class LifeModel implements ActionListener
      */
     public void oneGeneration()
     {
-    	
+
+
+
     } 
     
     /**
@@ -139,6 +141,8 @@ public class LifeModel implements ActionListener
      * use for each loops
      */
     private void updateNextGen() {
+
+
 
     }
      
@@ -154,7 +158,31 @@ public class LifeModel implements ActionListener
      */
     private int numLiveNeighbors (int row, int col)
     {
-       return 0;
+
+        int count = 0;
+
+        for (int i = row-1; i <= row+1; i++) {
+
+            for (int j = col-1; j <= col+1; j++) {
+
+                if (inBounds(i,j)) {
+
+                    if !(i = row && j = col) {
+
+                        if (LifeCell[i][j].isAliveNow()) {
+
+                            count++;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        return count;
     }
     
     /**
