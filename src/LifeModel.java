@@ -43,7 +43,7 @@ public class LifeModel implements ActionListener
       
         try
         {
-        	File reader = new File("life100.txt");
+        	File reader = new File("C:\\Users\\nathanh236_lpsk12\\Documents\\ConwayGameOfLife\\conway-s-game-of-life-team-1-ogs-4l\\life100.txt");
         	Scanner infile = new Scanner(reader);
         	int numInitialCells = infile.nextInt();
             for (int count=0; count<numInitialCells; count++)
@@ -168,12 +168,14 @@ public class LifeModel implements ActionListener
      * use for each loops
      */
     private void updateNextGen() {
+        // the following two for-loops iterate through the whole 60x60 array
         for (int i = 0; i < 60; i++)
         {
 
             for (int j = 0; j < 60; j++)
             {
-
+                // sets the current state of the cell equal to that of the next generation
+                // which effectively updates the generation
                 myGrid[i][j].setAliveNow(myGrid[i][j].isAliveNext());
 
             }
@@ -193,19 +195,21 @@ public class LifeModel implements ActionListener
      */
     private int numLiveNeighbors (int row, int col)
     {
-
+        // sets a counter for numLiveNeighbors
         int count = 0;
 
+
+        // the following for loops traverse through the 3x3 grid surrouding and including the current cell
         for (int i = row-1; i <= row+1; i++) {
 
             for (int j = col-1; j <= col+1; j++) {
-
+                // makes sure that the current loop only proceeds if [i][j] is inBounds
                 if (inBounds(i,j)) {
-
+                    // makes sure that the current cell is not selected
                     if (!(i == row && j == col)) {
-
+                        // determines whether the neighbor is alive
                         if (myGrid[i][j].isAliveNow()) {
-
+                            // increments count by one if the neighbor is alive
                             count++;
 
                         }
@@ -231,12 +235,13 @@ public class LifeModel implements ActionListener
     private boolean inBounds(int row, int col)
     {
 
+        // checks if the index is outside of the 60x60 grid
         if (row < 0 || row > 59 || col < 0 || col > 59) {
-
+            // out of bounds
             return false;
 
         }
-
+        // in bounds
         return true;
 
     }
