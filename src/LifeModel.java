@@ -129,10 +129,10 @@ public class LifeModel implements ActionListener
      */
     public void oneGeneration()
     {
-        for (int i = 0; i <= 60; i++)
+        for (int i = 0; i < 60; i++)
         {
 
-            for (int j = 0; j <= 60; j++)
+            for (int j = 0; j < 60; j++)
             {
                 // Rule Number 1:
                 LifeCell current = myGrid[i][j];
@@ -168,10 +168,10 @@ public class LifeModel implements ActionListener
      * use for each loops
      */
     private void updateNextGen() {
-        for (int i = 0; i <= 60; i++)
+        for (int i = 0; i < 60; i++)
         {
 
-            for (int j = 0; j <= 60; j++)
+            for (int j = 0; j < 60; j++)
             {
 
                 myGrid[i][j].setAliveNow(myGrid[i][j].isAliveNext());
@@ -231,7 +231,7 @@ public class LifeModel implements ActionListener
     private boolean inBounds(int row, int col)
     {
 
-        if (row < 0 || row > 60 || col < 0 || col > 60) {
+        if (row < 0 || row > 59 || col < 0 || col > 59) {
 
             return false;
 
