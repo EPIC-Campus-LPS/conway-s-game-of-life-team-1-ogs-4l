@@ -141,10 +141,11 @@ public class LifeModel implements ActionListener
      * use for each loops
      */
     private void updateNextGen() {
+        for (int i = 0; i <= 60; i++)
+        {
 
-        for (int i = 0; i <= 60; i++) {
-
-            for (int j = 0; j <= 60; j++) {
+            for (int j = 0; j <= 60; j++)
+            {
 
                 myGrid[i][j].setAliveNow(myGrid[i][j].isAliveNext());
 
