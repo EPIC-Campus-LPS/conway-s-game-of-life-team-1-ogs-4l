@@ -167,9 +167,9 @@ public class LifeModel implements ActionListener
 
                 if (inBounds(i,j)) {
 
-                    if !(i = row && j = col) {
+                    if (!(i == row && j == col)) {
 
-                        if (LifeCell[i][j].isAliveNow()) {
+                        if (myGrid[i][j].isAliveNow()) {
 
                             count++;
 
@@ -195,7 +195,15 @@ public class LifeModel implements ActionListener
      */
     private boolean inBounds(int row, int col)
     {
-        return false;
+
+        if (row < 0 || row > 60 || col < 0 || col > 60) {
+
+            return false;
+
+        }
+
+        return true;
+
     }
 }
 
