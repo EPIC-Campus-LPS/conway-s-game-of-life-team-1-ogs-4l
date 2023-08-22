@@ -125,13 +125,40 @@ public class LifeModel implements ActionListener
      * 4. A cell with 2 or 3 neighbors will live into the next generation.
      * 5. All births and deaths occur simultaneously!
      * 
-     * This method calls NumLiveNeighbors(), updateNextGen()
+     * This method calls numLiveNeighbors(), updateNextGen()
      */
     public void oneGeneration()
     {
+        for (int i = 0; i <= 60; i++)
+        {
 
+            for (int j = 0; j <= 60; j++)
+            {
+                // Rule Number 1:
+                LifeCell current = myGrid[i][j];
+                if((numLiveNeighbors(i,j) == 3) && (!(current.isAliveNow()))){
+                    current.setAliveNext(true);
+                }
+                // Rule Number 2:
+                if (numLiveNeighbors(i,j) <= 1) {
+                    current.setAliveNext(false);
+                }
+                // Rule Number 3:
+                if (numLiveNeighbors(i,j) >= 4) {
+                    current.setAliveNext(false);
+                }
+                // Rule Number 4:
+                if ((((numLiveNeighbors(i,j) == 2)  || (numLiveNeighbors(i,j) == 3))) && (current.isAliveNow())){
+                    current.setAliveNext(true);
+                }
 
+                //rule number 5 done ezzzz
 
+            }
+
+        }
+
+        updateNextGen();
     } 
     
     /**
